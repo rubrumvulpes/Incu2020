@@ -1,9 +1,63 @@
+-----------------------------------------------------------------------------------------------------
+Cisco APIC API
+-----------------------------------------------------------------------------------------------------
+
+% Get ticket for API server
+
+curl --location --request POST 'https://sandboxapicem.cisco.com/api/v1/ticket' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic ZGV2bmV0dXNlcjpDaXNjbzEyMyE=' \
+--header 'Cookie: _apic-em=s%3AgJb3jJsq3Wb4Q-iw3Av5Gv6zvWoMPacC.oeQpMRtBVocoUl9JJZhBYhqLumlTyVXKSYxepzk7bp4' \
+--data-raw '{
+    "username" : "devnetuser",
+    "password" : "Cisco123!"
+}'
+
+% Get list of devices
+
 curl --location --request GET 'https://sandboxapicem.cisco.com/api/v1/network-device' \
 --header 'Content-Type: application/json' \
---header 'X-Auth-Token: ST-3258-OhAWjTQRgwwt7H5QRtjj-cas'
+--header 'X-Auth-Token: ST-3453-dbLhgbLmRmy5Ncf1K5Rd-cas'
+
+-----------------------------------------------------------------------------------------------------
+Cisco DNA Center API
+-----------------------------------------------------------------------------------------------------
+
+% Get API token for server
+
+curl --location --request POST 'https://sandboxdnac.cisco.com/dna/system/api/v1/auth/token' \
+--header 'Authorization: Basic ZGV2bmV0dXNlcjpDaXNjbzEyMyE='
+
+% List all devices
+
 curl --location --request GET 'https://sandboxdnac.cisco.com/api/v1/network-device' \
 --header 'Content-Type: application/json' \
 --header 'X-Auth-Token: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MDJjMGUyODE0NzEwYTIyZDFmN2UxNzIiLCJhdXRoU291cmNlIjoiaW50ZXJuYWwiLCJ0ZW5hbnROYW1lIjoiVE5UMCIsInJvbGVzIjpbIjYwMmJlYmU1MTQ3MTBhMDBjOThmYTQwOSJdLCJ0ZW5hbnRJZCI6IjYwMmJlYmU1MTQ3MTBhMDBjOThmYTQwMiIsImV4cCI6MTYxNjI2ODgyNiwiaWF0IjoxNjE2MjY1MjI2LCJqdGkiOiI5MTViN2YyMC04ODZhLTRlNTMtYmNlYi1lYTU2MDMzNWEyN2QiLCJ1c2VybmFtZSI6ImRldm5ldHVzZXIifQ.E1t49Z-ajRTUuZxdwPhl5ZxIKbad_4XT4oAYZl4YCqOEHhhOwLIGGub3Fh-_eJQaS387vBvQ1_kOwhwpBPWnhbJbLIZE9IZHJGAYal0iX_GZjpThoSzd0QmaGs8dxx88WulzL_9Jtn2WMSWtyW5fFoOsWQmBzFlJZuotg7Yt-pLpJ-A2OL7Pdv-Aml5qZZo1FO4neqr-qYXQMvVBOHos05I0uT_8E747jIbReWomQMebvo8NgEu-067cO3kCq5t4eW9A0IEKqN1W4uQFJutPd6u9JEgHiYBvPwCWygFJbCpwnw6Yl7Gj1x9YHMYqTa_1qhPqg3TIt7VhgmoTLjNRsQ'
+
+-----------------------------------------------------------------------------------------------------
+Cisco Meraki API
+-----------------------------------------------------------------------------------------------------
+
+% Get Org ID of "DevNet Sandbox"
+
+curl --location --request GET 'https://api.meraki.com/api/v0/organizations' \
+--header 'X-Cisco-Meraki-API-Key: 6bec40cf957de430a6f1f2baa056b99a4fac9ea0' \
+--header 'Content-Type: application/json'
+
+% Get all devices of Org "DevNet Sandbox"
+
+curl --location --request GET 'https://api.meraki.com/api/v0/organizations/549236/devices' \
+--header 'X-Cisco-Meraki-API-Key: 6bec40cf957de430a6f1f2baa056b99a4fac9ea0' \
+--header 'Content-Type: application/json'
+
+% Get Net ID of "DevNet Sandbox ALWAYS ON"
+
+curl --location --request GET 'https://api.meraki.com/api/v0/organizations/549236/networks' \
+--header 'X-Cisco-Meraki-API-Key: 6bec40cf957de430a6f1f2baa056b99a4fac9ea0' \
+--header 'Content-Type: application/json'
+
+% Get all devices of "DevNet Sandbox ALWAYS ON"
+
 curl --location --request GET 'https://api.meraki.com/api/v0/networks/L_646829496481105433/devices' \
 --header 'Content-Type: application/json' \
 --header 'X-Cisco-Meraki-API-Key: 6bec40cf957de430a6f1f2baa056b99a4fac9ea0'
